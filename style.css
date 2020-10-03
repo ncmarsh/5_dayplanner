@@ -73,6 +73,5 @@ textarea{
 
 /* Center save button icon */
 .fa-save {
-  padding: 20px;
-  margin-top: 10px;
+  margin-top: 2rem;
 }
