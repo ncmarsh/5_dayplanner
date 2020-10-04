@@ -27,13 +27,14 @@ workHoursArr.forEach(function(i) {
     }
 
     textColEl.attr("id", i);
+    // saveIconEl.attr("id", "save" + i); I don't think I need this
+
     $(".time-block").append(rowEl);
     rowEl.append(hourColEl).append(textColEl).append(saveBtnColEl);
     saveBtnColEl.append(saveIconEl);
-    // need to add id's to save button, to trigger looking at previous sibling = text area
 })
 
-// For each text area tag 
+// To set the background color for each text area tag 
 $("textarea").each(function(i){
     let rowHourId = parseInt($(this).attr("id"));
     // If the text area Id is less than the currentHour, the row is in the past
@@ -56,21 +57,33 @@ $("textarea").each(function(i){
 let plannerStorageArr = JSON.parse(localStorage.getItem("plans")) || [];
 // let plannerStorageArr = [];
 
-let saveBtnEl = $(".fa-save");
 
+
+
+// Save button element
+saveBtnEl = $(".fa-save");
+
+// When the save button is clicked
 saveBtnEl.on("click", function(event){
-    // let rowHourSpot = parseInt(event.target.siblings(id));
-    let rowHourSpot = $(this).parent().siblings().find(".hour");
-    console.log(rowHourSpot);
-    let rowInputEl = $("textArea").val();
+    // let saveBtnId = $(this).attr("id");
 
-    // console.log(rowHour);
-    console.log(rowInputEl);
-    // plannerStorageArr.push({hourblock: rowHour, plans: rowInputEl});
-    // localStorage.setItem("plans", JSON.stringify(plannerStorageArr));
+    // Takes the Id of that row's text area
+    let planTimeEl = $(this).parent().siblings("textarea").attr("id");
+    // Takes the input of that row's content
+    let planInputEl = $(this).parent().siblings("textarea").val();
+    
+    console.log(planTimeEl);
+    console.log(planInputEl);
+
+    // Pushes the Id and Content into an object
+    plannerStorageArr.push({hourblock: planTimeEl, plans: planInputEl});
+    console.log(plannerStorageArr);
+    // Turns the object into a string and sets to local storage
+    localStorage.setItem("plans", JSON.stringify(plannerStorageArr));
+
 })
 
-
+// When I hit the save button, it will pull it's specific ID and go to the parent sibling ID to save the content from that specific psID to local storage item
 
 // Need it to set item hourblock in local storage from the time in the time block
 // Need to figure out how to save the specific timeblocks in local storage
