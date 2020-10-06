@@ -53,9 +53,8 @@ $("textarea").each(function(i) {
 
 
 // Save button on click saves hour and content from text area to localstorage
-let plannerStorageArr = JSON.parse(localStorage.getItem("plans")) || [];
+// let plannerStorageArr = JSON.parse(localStorage.getItem("plans")) || [];
 // let plannerStorageArr = [];
-console.log(plannerStorageArr[0]);
 
 // If there are objects in local storage
    // For each object in local storage, it will look to see if it has an hour block equal to a text area id
@@ -63,59 +62,94 @@ console.log(plannerStorageArr[0]);
 // if (plannerStorageArr) {
 //     console.log("yes");
 
+    // let savePlans = JSON.parse(localStorage.getItem("plans"));
+    // console.log(savePlans);
+
+    // plannerStorageArr.sort (function (a,b) {
+    //     return a.hourblock - b.hourblock;
+    // })
+
+    // plannerStorageArr.forEach(function(i) {
+    //     let saveTextId = $("textarea").attr("id");
+    //     if (i.hourblock === saveTextId) {
+    //         console.log("yay");
+    //         console.log(saveTextId);
+    //         console.log(i.task);
+    //         $(saveTextId).val(i.task);
+    //     }
+
+        // $("textarea").each(function(i) {
+        //     console.log(i);
+        //     let saveTextId = $("textarea").attr("id");
+        //     if (savePlans !== null && saveTextId === savePlans[i].hourblock) {
+        //         console.log("winner");
+        //         $(this).text(savePlans[i].task);
+    // })
+
+    // plannerStorageArr.forEach(function(i) {
+    //     console.log(i);
+    //     let saveTextId = $("textarea").attr("id");
+    //     if (i.hourblock === saveTextId) {
+    //         console.log(saveTextId);
+    //         console.log(i.task);
+            
+    //         let saveTextVal = $("textarea").val();
+    //         console.log("yes");
+ 
+    //     }
+    // })
+// }
+
+// if (plannerStorageArr) {
+//     console.log("yes");
+
 //     let savePlans = JSON.parse(localStorage.getItem("plans"));
 //     console.log(savePlans);
 
-//     savePlans.forEach(function(i) {
+//     $("textarea").each(function(i) {
 //         console.log(i);
 //         let saveTextId = $("textarea").attr("id");
-//         if (i.hourblock === saveTextId) {
-//             console.log(saveTextId);
-//             console.log(i.task);
-            
-//             let saveTextVal = $("textarea").val();
-//             console.log("yes");
- 
-//         }
+//         if (savePlans !== null && saveTextId === savePlans[i].hourblock) {
+//             console.log("winner");
+//             $(this).text(savePlans[i].task);
+//         } 
 //     })
 // }
 
-if (plannerStorageArr) {
-    console.log("yes");
-
-    let savePlans = JSON.parse(localStorage.getItem("plans"));
-    console.log(savePlans);
-
-    $("textarea").each(function(i) {
-        console.log(i);
-        let saveTextId = $("textarea").attr("id");
-        if (savePlans !== null && saveTextId === savePlans[i].hourblock) {
-            console.log("winner");
-            $(this).text(savePlans[i].task);
-        } 
-    })
-}
-
-
-// Save button element
-let saveBtnEl = $(".fa-save");
 
 // When the save button is clicked
-saveBtnEl.on("click", function(i){
+$(".fa-save").on("click", function(){
     // Takes the Id of that row's text area
-    let planTimeEl = $(this).parent().siblings("textarea").attr("id");
+    let hourBlockEl = $(this).parent().siblings("textarea").attr("id");
     // Takes the input of that row's content
     let planInputEl = $(this).parent().siblings("textarea").val();
 
-    console.log(planTimeEl);
+    console.log(hourBlockEl);
     console.log(planInputEl);
 
     // Pushes the Id and Content into an object
-    plannerStorageArr.push({hourblock: planTimeEl, task: planInputEl});
+    // plannerStorageArr.push({hourblock: planTimeEl, task: planInputEl});
     
     // Turns the object into a string and sets to local storage
-    localStorage.setItem("plans", JSON.stringify(plannerStorageArr));
-    console.log(plannerStorageArr);
+    // localStorage.setItem("plans", JSON.stringify(plannerStorageArr));
+    // console.log(plannerStorageArr);
+    
+    localStorage.setItem(hourBlockEl, planInputEl);
+
+    // let savePlansEl = $(this).parent().siblings("textarea").text();
+    // let retrPlansEl = localStorage.getItem("planInputEl");
+    // let retrPlansEl = localStorage.getItem("planInputEl");
+    // $(planSaveEl).text(retrPlansEl);
+
+
+})
+
+$("textarea").each(function() {
+
+    for (let i = 0; i < localStorage.length; i++) {
+        
+    }
+
 })
 
 
@@ -126,3 +160,6 @@ saveBtnEl.on("click", function(i){
 
 
 // Add reset day button
+$("#clear-day").on("click", function() {
+    localStorage.clear();
+})

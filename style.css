@@ -75,3 +75,9 @@ textarea{
 .fa-save {
   margin-top: 2rem;
 }
+
+/* Clear day button icon */
+#clear-day {
+  float: right;
+  margin-right: 7%;
+}
