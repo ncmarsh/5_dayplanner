@@ -72,8 +72,8 @@ To move forward with this project, the next feature I would like to add is an op
 
 ## Links
 
-- [Day Planner](https://github.com/ncmarsh/5_dayplanner)
-- [Project Repository](https://ncmarsh.github.io/5_dayplanner/) 
+- [Day Planner](https://ncmarsh.github.io/5_dayplanner/)
+- [Project Repository](https://github.com/ncmarsh/5_dayplanner)
 
 ### Contributing
 
