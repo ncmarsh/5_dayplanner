@@ -16,8 +16,10 @@ textarea{
 /* Header */
 .jumbotron {
   text-align: center;
-  background-color: transparent;
-  color: black;
+  background-color: #8fe7e9;
+  color: #2d2c2c;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: #c8c6c6;
   border-radius: 0;
   border-bottom: 10px solid black;
 }
