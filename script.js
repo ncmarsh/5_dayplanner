@@ -51,28 +51,7 @@ $(document).ready(function() {
         }
     })
 
-    // When the save button is clicked
-    $(".fa-save").on("click", function(){
-        // Takes the Id of that row's text area
-        let hourBlockEl = $(this).parent().siblings("textarea").attr("id");
-        // Takes the input of that row's content
-        let planInputEl = $(this).parent().siblings("textarea").val();
-
-        console.log(hourBlockEl);
-        console.log(planInputEl);
-
-        localStorage.setItem(hourBlockEl, planInputEl);
-
-    })
-
-    // When clear day button is clicked, local storage will clear
-        // But isn't clearing planner
-    $("#clear-day").on("click", function() {
-        localStorage.clear();
-
-        setPlans();
-    })
-
+    // Function to set the textarea to what is stored in local storage
     function setPlans () {
         $("#8").val(localStorage.getItem("8"));
         $("#9").val(localStorage.getItem("9"));
@@ -85,5 +64,26 @@ $(document).ready(function() {
         $("#16").val(localStorage.getItem("16"));
     }
 
+    // When the save button is clicked
+    $(".fa-save").on("click", function(){
+        // Takes the Id of that row's text area
+        let hourBlockEl = $(this).parent().siblings("textarea").attr("id");
+        // Takes the input of that row's content
+        let planInputEl = $(this).parent().siblings("textarea").val();
+
+        console.log(hourBlockEl);
+        console.log(planInputEl);
+
+        localStorage.setItem(hourBlockEl, planInputEl);
+    })
+
+    // Sets the textarea to what is stored in local storage
     setPlans();
+
+    // When clear day button is clicked, planner and local storage will clear
+    $("#clear-day").on("click", function() {
+        localStorage.clear();
+
+        setPlans();
+    })
 });
