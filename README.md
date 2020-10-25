@@ -15,6 +15,7 @@ Keep track of your daily tasks with this handy day planner!
 1. [Demo](#Demo)
 1. [Roadmap](#Roadmap)
 1. [Links](#Links)
+1. [Contact](#Contact)
 1. [Contributing](#Contributing)
 1. [License](#License)
 
@@ -75,11 +76,15 @@ To move forward with this project, the next feature I would like to add is an op
 - [Day Planner](https://ncmarsh.github.io/5_dayplanner/)
 - [Project Repository](https://github.com/ncmarsh/5_dayplanner)
 
-### Contributing
+## Contact
+
+- Nicole Marshall - [@ncmarsh](https://github.com/ncmarsh)
+
+## Contributing
 
 This is a personal project; no contributions are required at this time.
 
-### License
+## License
 
 No license granted.
 
